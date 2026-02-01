@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2 -->
+<html lang="en" data-color-mode="auto" data-light-theme="light" data-dark-theme="dark" data-a11y-animated-images="system" data-a11y-link-underlines="true" data-turbo-loaded=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">.turbo-progress-bar {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #0076ff;
+  z-index: 2147483647;
+  transition:
+    width 300ms ease-out,
+    opacity 150ms 150ms ease-in;
+  transform: translate3d(0, 0, 0);
+}
+</style>
+    
+  <link rel="dns-prefetch" href="https://github.githubassets.com/">
+  <link rel="dns-prefetch" href="https://avatars.githubusercontent.com/">
+  <link rel="dns-prefetch" href="https://github-cloud.s3.amazonaws.com/">
+  <link rel="dns-prefetch" href="https://user-images.githubusercontent.com/">
+  <link rel="preconnect" href="https://github.githubassets.com/" crossorigin="">
+  <link rel="preconnect" href="https://avatars.githubusercontent.com/">
+
+  
+
+  <link crossorigin="anonymous" media="all" rel="stylesheet" href="./Assignment 12 - Naive Bayes_files/light-f22204271997.css"><link crossorigin="anonymous" media="all" rel="stylesheet" href="./Assignment 12 - Naive Bayes_files/dark-4a5ce21c3d04.css"><link data-color-theme="dark_dimmed" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/dark_dimmed-fa8bebd8cfe2.css"><link data-color-theme="dark_high_contrast" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/dark_high_contrast-1d978ab3a30e.css"><link data-color-theme="dark_colorblind" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/dark_colorblind-0b34037c6ef6.css"><link data-color-theme="light_colorblind" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/light_colorblind-5e6b018cda80.css"><link data-color-theme="light_high_contrast" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/light_high_contrast-5a13b78ffdce.css"><link data-color-theme="light_tritanopia" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/light_tritanopia-fb1175fafdd5.css"><link data-color-theme="dark_tritanopia" crossorigin="anonymous" media="all" rel="stylesheet" data-href="https://github.githubassets.com/assets/dark_tritanopia-eb972891612d.css">
+    <link crossorigin="anonymous" media="all" rel="stylesheet" href="./Assignment 12 - Naive Bayes_files/primer-primitives-363ec1831c26.css">
+    <link crossorigin="anonymous" media="all" rel="stylesheet" href="./Assignment 12 - Naive Bayes_files/primer-a0dd60db4c05.css">
+    <link crossorigin="anonymous" media="all" rel="stylesheet" href="./Assignment 12 - Naive Bayes_files/global-49063950bef4.css">
+    <link crossorigin="anonymous" media="all" rel="stylesheet" href="./Assignment 12 - Naive Bayes_files/github-11d1c21d55c5.css">
+  
+
+  
+
+  <script type="application/json" id="client-env">{"locale":"en","featureFlags":["failbot_handle_non_errors","geojson_azure_maps","image_metric_tracking","turbo_experiment_risky","sample_network_conn_type","initial_emu_login_experience"]}</script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/wp-runtime-ae122eaf07c6.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/vendors-node_modules_dompurify_dist_purify_js-6890e890956f.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/vendors-node_modules_stacktrace-parser_dist_stack-trace-parser_esm_js-node_modules_github_bro-a4c183-79f9611c275b.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/vendors-node_modules_github_hydro-analytics-client_dist_analytics-client_js-node_modules_gith-6a10dd-035692e634e2.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/ui_packages_soft-nav_soft-nav_ts-6a5fadd2ef71.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/environment-599072e1b80d.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/vendors-node_modules_github_selector-observer_dist_index_esm_js-9f960d9b217c.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/vendors-node_modules_primer_behaviors_dist_esm_focus-zone_js-d9ce45da2851.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/vendors-node_modules_github_relative-time-element_dist_index_js-c6fd49e3fd28.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/vendors-node_modules_fzy_js_index_js-node_modules_github_combobox-nav_dist_index_js-node_modu-344bff-421f7a8c1008.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/vendors-node_modules_delegated-events_dist_index_js-node_modules_github_details-dialog-elemen-29dc30-a2a71f11a507.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/vendors-node_modules_github_filter-input-element_dist_index_js-node_modules_github_remote-inp-59c459-e74bf552c5b7.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/vendors-node_modules_github_file-attachment-element_dist_index_js-node_modules_primer_view-co-eb424d-42f5b364ec35.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/github-elements-8b56f9ede7b7.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/element-registry-c49c6a8d0395.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/vendors-node_modules_github_catalyst_lib_index_js-node_modules_github_hydro-analytics-client_-978abc0-15861e0630b6.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/vendors-node_modules_lit-html_lit-html_js-5b376145beff.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/vendors-node_modules_github_mini-throttle_dist_index_js-node_modules_github_alive-client_dist-bf5aa2-1b562c29ab8e.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/vendors-node_modules_morphdom_dist_morphdom-esm_js-5bff297a06de.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/vendors-node_modules_github_turbo_dist_turbo_es2017-esm_js-ec51a0f6e881.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/vendors-node_modules_color-convert_index_js-72c9fbde5ad4.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/vendors-node_modules_github_remote-form_dist_index_js-node_modules_scroll-anchoring_dist_scro-231ccf-b172749aea86.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/vendors-node_modules_github_session-resume_dist_index_js-node_modules_primer_behaviors_dist_e-ac74c6-637fd908cfc1.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/vendors-node_modules_primer_behaviors_dist_esm_dimensions_js-node_modules_github_jtml_lib_index_js-e415d8268a81.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/vendors-node_modules_github_paste-markdown_dist_index_esm_js-node_modules_github_quote-select-1b5533-c5ecf069cb7e.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/ui_packages_details-dialog_details-dialog_ts-ui_packages_fetch-utils_fetch-utils_ts-78f25ba16cd9.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/app_assets_modules_github_updatable-content_ts-ui_packages_hydro-analytics_hydro-analytics_ts-6ab1a34074c8.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/app_assets_modules_github_behaviors_task-list_ts-app_assets_modules_github_onfocus_ts-app_ass-079b43-6456ec2164f8.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/app_assets_modules_github_sticky-scroll-into-view_ts-b452ca178b7e.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/app_assets_modules_github_behaviors_ajax-error_ts-app_assets_modules_github_behaviors_include-2e2258-178d980b559e.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/app_assets_modules_github_behaviors_commenting_edit_ts-app_assets_modules_github_behaviors_ht-83c235-b85e9f4f1304.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/behaviors-4408c377df96.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/vendors-node_modules_delegated-events_dist_index_js-node_modules_github_catalyst_lib_index_js-d0256ebff5cd.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/notifications-global-99d196517b1b.js.download"></script>
+  
+  <script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/vendors-node_modules_github_clipboard-copy-element_dist_index_esm_js-node_modules_github_remo-956327-f7e840c69d59.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/app_assets_modules_github_diffs_blob-lines_ts-app_assets_modules_github_diffs_linkable-line-n-6932d4-3c542824251c.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/gist-2610fd92af52.js.download"></script>
+
+
+  <title>Assignment 12 - Naive Bayes.ipynb · GitHub</title>
+
+
+
+  <meta name="route-pattern" content="/:user_id/:gist_id(.:format)">
+
+    
+  <meta name="current-catalog-service-hash" content="56253a530ab9027b25719525dcbe6007461a3202218f6f5dfce5a601c121cbcb">
+
+
+  <meta name="request-id" content="DA21:22B05D:A41E3C:B8A9BC:656B0D93" data-pjax-transient="true"><meta name="html-safe-nonce" content="aeafe1a16600dbab269093eea1ae7f3616e8aeb430d4d1d7987c244705372af1" data-pjax-transient="true"><meta name="visitor-payload" content="eyJyZWZlcnJlciI6Imh0dHBzOi8vd3d3Lmdvb2dsZS5jb20vIiwicmVxdWVzdF9pZCI6IkRBMjE6MjJCMDVEOkE0MUUzQzpCOEE5QkM6NjU2QjBEOTMiLCJ2aXNpdG9yX2lkIjoiNDI3OTc4NjQ5NTI3NTYzNDA2NyIsInJlZ2lvbl9lZGdlIjoiY2VudHJhbGluZGlhIiwicmVnaW9uX3JlbmRlciI6ImNlbnRyYWxpbmRpYSJ9" data-pjax-transient="true"><meta name="visitor-hmac" content="1cfe4bff6f0b52fd21df142d85a04d2dc0e512e221285162329951a16bb81d69" data-pjax-transient="true">
+
+
+
+
+  <meta name="github-keyboard-shortcuts" content="" data-turbo-transient="true">
+  
+
+  <meta name="selected-link" value="gist_code" data-turbo-transient="">
+  <link rel="assets" href="https://github.githubassets.com/">
+
+    <meta name="google-site-verification" content="c1kuD-K2HIVF635lypcsWPoD4kilo5-jA_wBFyT4uMY">
+  <meta name="google-site-verification" content="KT5gs8h0wvaagLKAVWq8bbeNwnZZK1r1XQysX3xurLU">
+  <meta name="google-site-verification" content="ZzhVyEFwb7w3e0-uOTltm8Jsck2F5StVihD0exw2fsA">
+  <meta name="google-site-verification" content="GXs5KoUUkNCoaAZn7wPN-t01Pywp9M3sEjnt_3_ZWPc">
+  <meta name="google-site-verification" content="Apib7-x98H0j5cPqHWwSMm6dNU4GmODRoqxLiDzdx9I">
+
+<meta name="octolytics-url" content="https://collector.github.com/github/collect">
+
+  <meta name="analytics-location" content="/&lt;user-name&gt;/&lt;gist-id&gt;" data-turbo-transient="true">
+
+  
+
+
+
+
+    <meta name="octolytics-dimension-public" content="true"><meta name="octolytics-dimension-gist_id" content="108976480"><meta name="octolytics-dimension-gist_name" content="43ef4bd1612a2f1ec546e6ecbc6f07a2"><meta name="octolytics-dimension-anonymous" content="false"><meta name="octolytics-dimension-owner_id" content="71762267"><meta name="octolytics-dimension-owner_login" content="perlineanisha"><meta name="octolytics-dimension-forked" content="false">
+
+
+    <meta name="user-login" content="">
+
+  
+
+    <meta name="viewport" content="width=device-width">
+    
+      <meta name="description" content="Assignment 12 - Naive Bayes.ipynb. GitHub Gist: instantly share code, notes, and snippets.">
+      <link rel="search" type="application/opensearchdescription+xml" href="https://gist.github.com/opensearch-gist.xml" title="Gist">
+    <link rel="fluid-icon" href="https://gist.github.com/fluidicon.png" title="GitHub">
+    <meta property="fb:app_id" content="1401488693436528">
+    <meta name="apple-itunes-app" content="app-id=1477376905, app-argument=https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2">
+      <meta name="twitter:image:src" content="https://github.githubassets.com/assets/gist-og-image-54fd7dc0713e.png"><meta name="twitter:site" content="@github"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Assignment 12 - Naive Bayes.ipynb"><meta name="twitter:description" content="Assignment 12 - Naive Bayes.ipynb. GitHub Gist: instantly share code, notes, and snippets.">
+      <meta property="og:image" content="https://github.githubassets.com/assets/gist-og-image-54fd7dc0713e.png"><meta property="og:image:alt" content="Assignment 12 - Naive Bayes.ipynb. GitHub Gist: instantly share code, notes, and snippets."><meta property="og:site_name" content="Gist"><meta property="og:type" content="article"><meta property="og:title" content="Assignment 12 - Naive Bayes.ipynb"><meta property="og:url" content="https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2"><meta property="og:description" content="Assignment 12 - Naive Bayes.ipynb. GitHub Gist: instantly share code, notes, and snippets."><meta property="article:author" content="262588213843476"><meta property="article:publisher" content="262588213843476">
+      
+
+
+
+        <meta name="hostname" content="gist.github.com">
+
+
+
+        <meta name="expected-hostname" content="gist.github.com">
+
+
+  <meta http-equiv="x-pjax-version" content="03a616c6875d429dcfa078d1fce8413955e1bfca79b9ce42ec0eab111179155b" data-turbo-track="reload">
+  <meta http-equiv="x-pjax-csp-version" content="b4c8597ef4225e5a7a76c2140cb6cc5d01aa3639dff0a1dc9a6696ca8e3f5823" data-turbo-track="reload">
+  <meta http-equiv="x-pjax-css-version" content="83cecd76a9f47eb767972673af636e3b50c4710c50b8ad6b8063dcb22a426eaa" data-turbo-track="reload">
+  <meta http-equiv="x-pjax-js-version" content="4006054ec71f399591c1755f8b92709c89beb66bfe0716a0dbfa43d51a4ec970" data-turbo-track="reload">
+
+  <meta name="turbo-cache-control" content="no-preview" data-turbo-transient="">
+
+      <link href="https://gist.github.com/perlineanisha.atom" rel="alternate" title="atom" type="application/atom+xml">
+
+
+  <link crossorigin="anonymous" media="all" rel="stylesheet" href="./Assignment 12 - Naive Bayes_files/gist-9c174c479971.css">
+
+
+
+  <meta name="turbo-body-classes" content="logged-out env-production page-responsive">
+
+
+  <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
+
+  <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
+
+  <meta name="browser-optimizely-client-errors-url" content="https://api.github.com/_private/browser/optimizely_client/errors">
+
+  <link rel="mask-icon" href="https://github.githubassets.com/assets/pinned-octocat-093da3e6fa40.svg" color="#000000">
+  <link rel="alternate icon" class="js-site-favicon" type="image/png" href="https://github.githubassets.com/favicons/favicon-dark.png">
+  <link rel="icon" class="js-site-favicon" type="image/svg+xml" href="https://github.githubassets.com/favicons/favicon-dark.svg">
+
+<meta name="theme-color" content="#1e2327">
+<meta name="color-scheme" content="light dark">
+
+
+
+  </head>
+
+  <body class="logged-out env-production page-responsive" style="word-wrap: break-word;">
+    <div data-turbo-body="" class="logged-out env-production page-responsive" style="word-wrap: break-word;">
+      
+
+
+    <div class="position-relative js-header-wrapper ">
+      <a href="https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2#start-of-content" class="px-2 py-4 color-bg-accent-emphasis color-fg-on-emphasis show-on-focus js-skip-to-content">Skip to content</a>
+      <span data-view-component="true" class="progress-pjax-loader Progress position-fixed width-full">
+    <span style="width: 0%;" data-view-component="true" class="Progress-item progress-pjax-loader-bar left-0 top-0 color-bg-accent-emphasis"></span>
+</span>      
+      
+  <script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/react-lib-1fbfc5be2c18.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/vendors-node_modules_primer_octicons-react_dist_index_esm_js-node_modules_primer_react_lib-es-2e8e7c-0f375fc77eaa.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/vendors-node_modules_primer_react_lib-esm_Box_Box_js-ebfceb11fb57.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/vendors-node_modules_primer_react_lib-esm_Button_Button_js-2c03574279a4.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/vendors-node_modules_primer_react_lib-esm_Link_Link_js-node_modules_primer_react_node_modules-99166f-1f85171cf8dc.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/vendors-node_modules_primer_react_lib-esm_ActionList_index_js-09fc885ddec2.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/vendors-node_modules_primer_react_lib-esm_Button_IconButton_js-node_modules_primer_react_lib--23bcad-0c1b5737bcad.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/ui_packages_react-core_create-browser-history_ts-ui_packages_react-core_deferred-registry_ts--ebbb92-f862877dad23.js.download"></script>
+<script crossorigin="anonymous" defer="defer" type="application/javascript" src="./Assignment 12 - Naive Bayes_files/keyboard-shortcuts-dialog-4c1f0f2061d1.js.download"></script>
+
+<react-partial partial-name="keyboard-shortcuts-dialog" data-ssr="false" data-catalyst="" class="loaded">
+  
+  <script type="application/json" data-target="react-partial.embeddedData">{"props":{}}</script>
+  <div data-target="react-partial.reactRoot"><script type="application/json" id="__PRIMER_DATA__">{"resolvedServerColorMode":"night"}</script></div>
+</react-partial>
+
+
+
+      
+
+          <div class="Header js-details-container Details flex-wrap flex-md-nowrap p-responsive" role="banner">
+  <div class="Header-item d-none d-md-flex">
+    <a class="Header-link" data-hotkey="g d" aria-label="Gist Homepage " href="https://gist.github.com/">
+  <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true" class="octicon octicon-mark-github v-align-middle d-inline-block d-md-none">
+    <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+</svg>
+  <svg aria-hidden="true" height="24" viewBox="0 0 45 16" version="1.1" width="67" data-view-component="true" class="octicon octicon-logo-github v-align-middle d-none d-md-inline-block">
+    <path d="M8.81 7.35v5.74c0 .04-.01.11-.06.13 0 0-1.25.89-3.31.89-2.49 0-5.44-.78-5.44-5.92S2.58 1.99 5.1 2c2.18 0 3.06.49 3.2.58.04.05.06.09.06.14L7.94 4.5c0 .09-.09.2-.2.17-.36-.11-.9-.33-2.17-.33-1.47 0-3.05.42-3.05 3.73s1.5 3.7 2.58 3.7c.92 0 1.25-.11 1.25-.11v-2.3H4.88c-.11 0-.19-.08-.19-.17V7.35c0-.09.08-.17.19-.17h3.74c.11 0 .19.08.19.17Zm35.85 2.33c0 3.43-1.11 4.41-3.05 4.41-1.64 0-2.52-.83-2.52-.83s-.04.46-.09.52c-.03.06-.08.08-.14.08h-1.48c-.1 0-.19-.08-.19-.17l.02-11.11c0-.09.08-.17.17-.17h2.13c.09 0 .17.08.17.17v3.77s.82-.53 2.02-.53l-.01-.02c1.2 0 2.97.45 2.97 3.88ZM27.68 2.43c.09 0 .17.08.17.17v11.11c0 .09-.08.17-.17.17h-2.13c-.09 0-.17-.08-.17-.17l.02-4.75h-3.31v4.75c0 .09-.08.17-.17.17h-2.13c-.08 0-.17-.08-.17-.17V2.6c0-.09.08-.17.17-.17h2.13c.09 0 .17.08.17.17v4.09h3.31V2.6c0-.09.08-.17.17-.17Zm8.26 3.64c.11 0 .19.08.19.17l-.02 7.47c0 .09-.06.17-.17.17H34.6c-.07 0-.14-.04-.16-.09-.03-.06-.08-.45-.08-.45s-1.13.77-2.52.77c-1.69 0-2.92-.55-2.92-2.75V6.25c0-.09.08-.17.17-.17h2.14c.09 0 .17.08.17.17V11c0 .75.22 1.09.97 1.09s1.3-.39 1.3-.39V6.26c0-.11.06-.19.17-.19Zm-17.406 5.971h.005a.177.177 0 0 1 .141.179v1.5c0 .07-.03.14-.09.16-.1.05-.74.22-1.27.22-1.16 0-2.86-.25-2.86-2.69V8.13h-1.11c-.09 0-.17-.08-.17-.19V6.58c0-.08.05-.15.13-.17.07-.01 1.16-.28 1.16-.28V3.96c0-.08.05-.13.14-.13h2.16c.09 0 .14.05.14.13v2.11h1.59c.08 0 .16.08.16.17v1.7c0 .11-.07.19-.16.19h-1.59v3.131c0 .47.27.83 1.05.83.247 0 .481-.049.574-.05ZM12.24 6.06c.09 0 .17.08.17.17v7.37c0 .18-.05.27-.25.27h-1.92c-.17 0-.3-.07-.3-.27V6.26c0-.11.08-.2.17-.2Zm29.99 3.78c0-1.81-.73-2.05-1.5-1.97-.6.04-1.08.34-1.08.34v3.52s.49.34 1.22.36c1.03.03 1.36-.34 1.36-2.25ZM11.19 2.68c.75 0 1.36.61 1.36 1.38 0 .77-.61 1.38-1.36 1.38-.77 0-1.38-.61-1.38-1.38 0-.77.61-1.38 1.38-1.38Zm7.34 9.35v.001l.01.01h-.001l-.005-.001v.001c-.009-.001-.015-.011-.024-.011Z"></path>
+</svg>
+  <svg aria-hidden="true" height="24" viewBox="0 0 25 16" version="1.1" width="37" data-view-component="true" class="octicon octicon-logo-gist v-align-middle d-none d-md-inline-block">
+    <path d="M4.7 8.73v-1h3.52v5.69c-.78.37-1.95.64-3.59.64C1.11 14.06 0 11.37 0 8.03 0 4.69 1.13 2 4.63 2c1.62 0 2.64.33 3.28.66v1.05c-1.22-.5-2-.73-3.28-.73-2.57 0-3.48 2.21-3.48 5.06 0 2.85.91 5.05 3.47 5.05.89 0 1.98-.07 2.53-.34V8.73Zm10.98.69h.03c2.22.2 2.75.95 2.75 2.23 0 1.21-.76 2.41-3.14 2.41-.75 0-1.83-.19-2.33-.39v-.94c.47.17 1.22.36 2.33.36 1.62 0 2.06-.69 2.06-1.42 0-.71-.22-1.21-1.77-1.34-2.26-.2-2.73-1-2.73-2.08 0-1.11.72-2.31 2.92-2.31.73 0 1.56.09 2.25.39v.94c-.61-.2-1.22-.36-2.27-.36-1.55 0-1.88.57-1.88 1.34 0 .69.28 1.04 1.78 1.17Zm8.58-3.33v.85h-2.42v4.87c0 .95.53 1.34 1.5 1.34.2 0 .42 0 .61-.03v.89c-.17.03-.5.05-.69.05-1.31 0-2.5-.6-2.5-2.13v-5H19.2v-.48l1.56-.44V3.9l1.08-.31v2.5h2.42Zm-13.17-.03v6.41c0 .54.19.7.67.7v.89c-1.14 0-1.72-.47-1.72-1.72V6.06h1.05Zm.25-2.33c0 .44-.34.78-.78.78a.76.76 0 0 1-.77-.78c0-.44.32-.78.77-.78s.78.34.78.78Z"></path>
+</svg>
+</a>
+  </div>
+
+  <div class="Header-item d-md-none">
+      <button aria-label="Toggle navigation" aria-expanded="false" type="button" data-view-component="true" class="Header-link js-details-target btn-link">    <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true" class="octicon octicon-three-bars">
+    <path d="M1 2.75A.75.75 0 0 1 1.75 2h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 2.75Zm0 5A.75.75 0 0 1 1.75 7h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 7.75ZM1.75 12h12.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Z"></path>
+</svg>
+</button>  </div>
+
+  <div class="Header-item Header-item--full js-site-search flex-column flex-md-row width-full flex-order-2 flex-md-order-none mr-0 mr-md-3 mt-3 mt-md-0 Details-content--hidden-not-important d-md-flex">
+      <div class="header-search flex-self-stretch flex-md-self-auto mr-0 mr-md-3 mb-3 mb-md-0">
+  <!-- '"` --><!-- </textarea></xmp> --><form class="position-relative js-quicksearch-form" role="search" aria-label="Site" data-turbo="false" action="https://gist.github.com/search" accept-charset="UTF-8" method="get">
+    <div class="header-search-wrapper form-control input-sm js-chromeless-input-container">
+      <input type="text" class="form-control input-sm js-site-search-focus header-search-input" data-hotkey="s,/" name="q" aria-label="Search" placeholder="Search…" autocorrect="off" autocomplete="off" autocapitalize="off">
+    </div>
+
+</form></div>
+
+
+    <nav aria-label="Global" class="d-flex flex-column flex-md-row flex-self-stretch flex-md-self-auto">
+  <a class="Header-link mr-0 mr-md-3 py-2 py-md-0 border-top border-md-top-0 border-white-fade" data-ga-click="Header, go to all gists, text:all gists" href="https://gist.github.com/discover">All gists</a>
+
+  <a class="Header-link mr-0 mr-md-3 py-2 py-md-0 border-top border-md-top-0 border-white-fade" data-ga-click="Header, go to GitHub, text:Back to GitHub" href="https://github.com/">Back to GitHub</a>
+
+    <a class="Header-link d-block d-md-none mr-0 mr-md-3 py-2 py-md-0 border-top border-md-top-0 border-white-fade" data-ga-click="Header, sign in" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;gist header&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;LOG_IN&quot;,&quot;originating_url&quot;:&quot;https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="2d899f5a6e4d40901a486b1ae7c5c24e086f8b89e6738f2197225c1b6d2f0b6b" href="https://gist.github.com/auth/github?return_to=https%3A%2F%2Fgist.github.com%2Fperlineanisha%2F43ef4bd1612a2f1ec546e6ecbc6f07a2">
+      Sign in
+</a>
+      <a class="Header-link d-block d-md-none mr-0 mr-md-3 py-2 py-md-0 border-top border-md-top-0 border-white-fade" data-ga-click="Header, sign up" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;gist header&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;SIGN_UP&quot;,&quot;originating_url&quot;:&quot;https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="b44215aadc3ed3f79b75fef5a2f05353fecbde14d540e808c1b366e2495c7ae4" href="https://gist.github.com/join?return_to=https%3A%2F%2Fgist.github.com%2Fperlineanisha%2F43ef4bd1612a2f1ec546e6ecbc6f07a2&amp;source=header-gist">
+        Sign up
+</a></nav>
+
+  </div>
+
+  <div class="Header-item Header-item--full flex-justify-center d-md-none position-relative">
+    <a class="Header-link" data-hotkey="g d" aria-label="Gist Homepage " href="https://gist.github.com/">
+  <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true" class="octicon octicon-mark-github v-align-middle d-inline-block d-md-none">
+    <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+</svg>
+  <svg aria-hidden="true" height="24" viewBox="0 0 45 16" version="1.1" width="67" data-view-component="true" class="octicon octicon-logo-github v-align-middle d-none d-md-inline-block">
+    <path d="M8.81 7.35v5.74c0 .04-.01.11-.06.13 0 0-1.25.89-3.31.89-2.49 0-5.44-.78-5.44-5.92S2.58 1.99 5.1 2c2.18 0 3.06.49 3.2.58.04.05.06.09.06.14L7.94 4.5c0 .09-.09.2-.2.17-.36-.11-.9-.33-2.17-.33-1.47 0-3.05.42-3.05 3.73s1.5 3.7 2.58 3.7c.92 0 1.25-.11 1.25-.11v-2.3H4.88c-.11 0-.19-.08-.19-.17V7.35c0-.09.08-.17.19-.17h3.74c.11 0 .19.08.19.17Zm35.85 2.33c0 3.43-1.11 4.41-3.05 4.41-1.64 0-2.52-.83-2.52-.83s-.04.46-.09.52c-.03.06-.08.08-.14.08h-1.48c-.1 0-.19-.08-.19-.17l.02-11.11c0-.09.08-.17.17-.17h2.13c.09 0 .17.08.17.17v3.77s.82-.53 2.02-.53l-.01-.02c1.2 0 2.97.45 2.97 3.88ZM27.68 2.43c.09 0 .17.08.17.17v11.11c0 .09-.08.17-.17.17h-2.13c-.09 0-.17-.08-.17-.17l.02-4.75h-3.31v4.75c0 .09-.08.17-.17.17h-2.13c-.08 0-.17-.08-.17-.17V2.6c0-.09.08-.17.17-.17h2.13c.09 0 .17.08.17.17v4.09h3.31V2.6c0-.09.08-.17.17-.17Zm8.26 3.64c.11 0 .19.08.19.17l-.02 7.47c0 .09-.06.17-.17.17H34.6c-.07 0-.14-.04-.16-.09-.03-.06-.08-.45-.08-.45s-1.13.77-2.52.77c-1.69 0-2.92-.55-2.92-2.75V6.25c0-.09.08-.17.17-.17h2.14c.09 0 .17.08.17.17V11c0 .75.22 1.09.97 1.09s1.3-.39 1.3-.39V6.26c0-.11.06-.19.17-.19Zm-17.406 5.971h.005a.177.177 0 0 1 .141.179v1.5c0 .07-.03.14-.09.16-.1.05-.74.22-1.27.22-1.16 0-2.86-.25-2.86-2.69V8.13h-1.11c-.09 0-.17-.08-.17-.19V6.58c0-.08.05-.15.13-.17.07-.01 1.16-.28 1.16-.28V3.96c0-.08.05-.13.14-.13h2.16c.09 0 .14.05.14.13v2.11h1.59c.08 0 .16.08.16.17v1.7c0 .11-.07.19-.16.19h-1.59v3.131c0 .47.27.83 1.05.83.247 0 .481-.049.574-.05ZM12.24 6.06c.09 0 .17.08.17.17v7.37c0 .18-.05.27-.25.27h-1.92c-.17 0-.3-.07-.3-.27V6.26c0-.11.08-.2.17-.2Zm29.99 3.78c0-1.81-.73-2.05-1.5-1.97-.6.04-1.08.34-1.08.34v3.52s.49.34 1.22.36c1.03.03 1.36-.34 1.36-2.25ZM11.19 2.68c.75 0 1.36.61 1.36 1.38 0 .77-.61 1.38-1.36 1.38-.77 0-1.38-.61-1.38-1.38 0-.77.61-1.38 1.38-1.38Zm7.34 9.35v.001l.01.01h-.001l-.005-.001v.001c-.009-.001-.015-.011-.024-.011Z"></path>
+</svg>
+  <svg aria-hidden="true" height="24" viewBox="0 0 25 16" version="1.1" width="37" data-view-component="true" class="octicon octicon-logo-gist v-align-middle d-none d-md-inline-block">
+    <path d="M4.7 8.73v-1h3.52v5.69c-.78.37-1.95.64-3.59.64C1.11 14.06 0 11.37 0 8.03 0 4.69 1.13 2 4.63 2c1.62 0 2.64.33 3.28.66v1.05c-1.22-.5-2-.73-3.28-.73-2.57 0-3.48 2.21-3.48 5.06 0 2.85.91 5.05 3.47 5.05.89 0 1.98-.07 2.53-.34V8.73Zm10.98.69h.03c2.22.2 2.75.95 2.75 2.23 0 1.21-.76 2.41-3.14 2.41-.75 0-1.83-.19-2.33-.39v-.94c.47.17 1.22.36 2.33.36 1.62 0 2.06-.69 2.06-1.42 0-.71-.22-1.21-1.77-1.34-2.26-.2-2.73-1-2.73-2.08 0-1.11.72-2.31 2.92-2.31.73 0 1.56.09 2.25.39v.94c-.61-.2-1.22-.36-2.27-.36-1.55 0-1.88.57-1.88 1.34 0 .69.28 1.04 1.78 1.17Zm8.58-3.33v.85h-2.42v4.87c0 .95.53 1.34 1.5 1.34.2 0 .42 0 .61-.03v.89c-.17.03-.5.05-.69.05-1.31 0-2.5-.6-2.5-2.13v-5H19.2v-.48l1.56-.44V3.9l1.08-.31v2.5h2.42Zm-13.17-.03v6.41c0 .54.19.7.67.7v.89c-1.14 0-1.72-.47-1.72-1.72V6.06h1.05Zm.25-2.33c0 .44-.34.78-.78.78a.76.76 0 0 1-.77-.78c0-.44.32-.78.77-.78s.78.34.78.78Z"></path>
+</svg>
+</a>
+  </div>
+
+    <div class="Header-item f4 mr-0" role="navigation" aria-label="Sign in or sign up">
+      <a class="Header-link no-underline mr-3" data-ga-click="Header, sign in" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;gist header&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;LOG_IN&quot;,&quot;originating_url&quot;:&quot;https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="2d899f5a6e4d40901a486b1ae7c5c24e086f8b89e6738f2197225c1b6d2f0b6b" href="https://gist.github.com/auth/github?return_to=https%3A%2F%2Fgist.github.com%2Fperlineanisha%2F43ef4bd1612a2f1ec546e6ecbc6f07a2">
+        Sign&nbsp;in
+</a>        <a class="Header-link d-inline-block no-underline border color-border-default rounded px-2 py-1" data-ga-click="Header, sign up" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;gist header&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;SIGN_UP&quot;,&quot;originating_url&quot;:&quot;https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="b44215aadc3ed3f79b75fef5a2f05353fecbde14d540e808c1b366e2495c7ae4" href="https://gist.github.com/join?return_to=https%3A%2F%2Fgist.github.com%2Fperlineanisha%2F43ef4bd1612a2f1ec546e6ecbc6f07a2&amp;source=header-gist">
+          Sign&nbsp;up
+</a>    </div>
+</div>
+
+
+
+      <div hidden="hidden" data-view-component="true" class="js-stale-session-flash stale-session-flash flash flash-warn mb-3">
+  
+        <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-alert">
+    <path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path>
+</svg>
+        <span class="js-stale-session-flash-signed-in" hidden="">You signed in with another tab or window. <a class="Link--inTextBlock" href="https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2">Reload</a> to refresh your session.</span>
+        <span class="js-stale-session-flash-signed-out" hidden="">You signed out in another tab or window. <a class="Link--inTextBlock" href="https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2">Reload</a> to refresh your session.</span>
+        <span class="js-stale-session-flash-switched" hidden="">You switched accounts on another tab or window. <a class="Link--inTextBlock" href="https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2">Reload</a> to refresh your session.</span>
+
+    <button id="icon-button-7e21ee0f-fdae-4fe9-bd81-5a7bc664ba2c" aria-labelledby="tooltip-a30b9a1f-7344-4ddf-aad9-cf6f013d68e7" type="button" data-view-component="true" class="Button Button--iconOnly Button--invisible Button--medium flash-close js-flash-close">  <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-x Button-visual">
+    <path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l3.22 3.22a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-3.22 3.22a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06Z"></path>
+</svg>
+</button><tool-tip id="tooltip-a30b9a1f-7344-4ddf-aad9-cf6f013d68e7" for="icon-button-7e21ee0f-fdae-4fe9-bd81-5a7bc664ba2c" popover="manual" data-direction="s" data-type="label" data-view-component="true" class="sr-only position-absolute" aria-hidden="true" role="tooltip"><template shadowrootmode="open"><style>
+      :host {
+        padding: var(--overlay-paddingBlock-condensed) var(--overlay-padding-condensed) !important;
+        font: var(--text-body-shorthand-small);
+        color: var(--fgColor-onEmphasis, var(--color-fg-on-emphasis)) !important;
+        text-align: center;
+        text-decoration: none;
+        text-shadow: none;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: break-word;
+        white-space: pre;
+        background: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus)) !important;
+        border-radius: var(--borderRadius-medium);
+        border: 0 !important;
+        opacity: 0;
+        max-width: var(--overlay-width-small);
+        word-wrap: break-word;
+        white-space: normal;
+        width: max-content !important;
+        inset: var(--tool-tip-position-top, 0) auto auto var(--tool-tip-position-left, 0) !important;
+        overflow: visible !important;
+        text-wrap: balance;
+      }
+
+      :host:before{
+        position: absolute;
+        z-index: 1000001;
+        color: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus));
+        content: "";
+        border: 6px solid transparent;
+        opacity: 0;
+      }
+
+      @keyframes tooltip-appear {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      :host:after{
+        position: absolute;
+        display: block;
+        right: 0;
+        left: 0;
+        height: 12px;
+        content: "";
+      }
+
+      :host(:popover-open),
+      :host(:popover-open):before {
+        animation-name: tooltip-appear;
+        animation-duration: .1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in;
+      }
+
+      :host(.\:popover-open),
+      :host(.\:popover-open):before {
+        animation-name: tooltip-appear;
+        animation-duration: .1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in;
+        animation-delay: .4s;
+      }
+
+      :host(.tooltip-s):before,
+      :host(.tooltip-n):before {
+        right: 50%;
+        margin-right: -6px;
+      }
+      :host(.tooltip-s):before,
+      :host(.tooltip-se):before,
+      :host(.tooltip-sw):before {
+        bottom: 100%;
+        border-bottom-color: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus));
+      }
+      :host(.tooltip-s):after,
+      :host(.tooltip-se):after,
+      :host(.tooltip-sw):after {
+        bottom: 100%
+      }
+      :host(.tooltip-n):before,
+      :host(.tooltip-ne):before,
+      :host(.tooltip-nw):before {
+        top: 100%;
+        border-top-color: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus));
+      }
+      :host(.tooltip-n):after,
+      :host(.tooltip-ne):after,
+      :host(.tooltip-nw):after {
+        top: 100%;
+      }
+      :host(.tooltip-se):before,
+      :host(.tooltip-ne):before {
+        left: 0;
+        margin-left: 6px;
+      }
+      :host(.tooltip-sw):before,
+      :host(.tooltip-nw):before {
+        right: 0;
+        margin-right: 6px;
+      }
+      :host(.tooltip-w):before {
+        top: 50%;
+        bottom: 50%;
+        left: 100%;
+        margin-top: -6px;
+        border-left-color: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus));
+      }
+      :host(.tooltip-e):before {
+        top: 50%;
+        right: 100%;
+        bottom: 50%;
+        margin-top: -6px;
+        border-right-color: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus));
+      }
+    </style><slot></slot></template>Dismiss alert</tool-tip>
+
+
+  
+</div>
+    </div>
+
+  <div id="start-of-content" class="show-on-focus"></div>
+
+
+
+
+
+
+
+
+    <div id="js-flash-container" data-turbo-replace="">
+
+
+
+
+
+  <template class="js-flash-template"></template>
+</div>
+
+
+    
+    <include-fragment class="js-notification-shelf-include-fragment" data-base-src="https://github.com/notifications/beta/shelf"><template shadowrootmode="open"><style>:host {display: block;}</style><slot></slot></template></include-fragment>
+
+
+
+
+
+
+  <div class="application-main " data-commit-hovercards-enabled="" data-discussion-hovercards-enabled="" data-issue-and-pr-hovercards-enabled="">
+        <div itemscope="" itemtype="http://schema.org/Code">
+    <main id="gist-pjax-container">
+      
+
+
+  <div class="gist-detail-intro gist-banner pb-3">
+    <div class="text-center container-lg px-3">
+      <p class="lead">
+        Instantly share code, notes, and snippets.
+      </p>
+    </div>
+  </div>
+
+
+<div class="gisthead pagehead pb-0 pt-3 mb-4">
+  <div class="px-0">
+    
+  
+
+<div class="mb-3 d-flex px-3 px-md-3 px-lg-5">
+  <div class="flex-auto min-width-0 width-fit mr-3">
+    <div class="d-flex">
+      <div class="d-none d-md-block">
+        <a class="mr-2 flex-shrink-0" data-hovercard-type="user" data-hovercard-url="/users/perlineanisha/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://gist.github.com/perlineanisha"><img class="avatar avatar-user" src="./Assignment 12 - Naive Bayes_files/71762267" width="32" height="32" alt="@perlineanisha"></a>
+      </div>
+      <div class="d-flex flex-column width-full">
+          <div class="d-flex flex-row width-full">
+            <h1 class="wb-break-word f3 text-normal mb-md-0 mb-1">
+              <span class="author"><a data-hovercard-type="user" data-hovercard-url="/users/perlineanisha/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://gist.github.com/perlineanisha">perlineanisha</a></span><!--
+                  --><span class="mx-1 color-fg-muted">/</span><!--
+                  --><strong itemprop="name" class="css-truncate-target mr-1" style="max-width: 410px"><a href="https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2">Assignment 12 - Naive Bayes.ipynb</a></strong>
+            </h1>
+
+        </div>
+
+        <div class="note m-0">
+          Created
+          <relative-time tense="past" datetime="2021-04-13T08:02:51Z" data-view-component="true" title="Apr 13, 2021, 1:32 PM GMT+5:30"><template shadowrootmode="open">2 years ago</template>April 13, 2021 08:02</relative-time>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ul class="d-md-flex d-none pagehead-actions float-none">
+
+
+
+      <li>
+          <a id="gist-star-button-count" href="https://gist.github.com/login?return_to=https%3A%2F%2Fgist.github.com%2Fperlineanisha%2F43ef4bd1612a2f1ec546e6ecbc6f07a2" rel="nofollow" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;gist star button&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;LOG_IN&quot;,&quot;originating_url&quot;:&quot;https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="7e980a9a7a032d59a9a040b80508de14dcb420635517f888a0926db03d648166" data-view-component="true" class="btn-with-count Button--secondary Button--small Button" aria-describedby="tooltip-1728e058-aaea-4878-a808-f43a5fa8b6ca">  <span class="Button-content">
+      <span class="Button-visual Button-leadingVisual">
+        <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-star">
+    <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path>
+</svg>
+      </span>
+    <span class="Button-label">Star</span>
+      <span class="Button-visual Button-trailingVisual">
+        <span title="2" data-view-component="true" class="Counter">2</span>
+      </span>
+  </span>
+</a><tool-tip id="tooltip-1728e058-aaea-4878-a808-f43a5fa8b6ca" for="gist-star-button-count" popover="manual" data-direction="n" data-type="description" data-view-component="true" class="position-absolute sr-only" role="tooltip" style="--tool-tip-position-top: 118.015625px; --tool-tip-position-left: 1079.4453125px;"><template shadowrootmode="open"><style>
+      :host {
+        padding: var(--overlay-paddingBlock-condensed) var(--overlay-padding-condensed) !important;
+        font: var(--text-body-shorthand-small);
+        color: var(--fgColor-onEmphasis, var(--color-fg-on-emphasis)) !important;
+        text-align: center;
+        text-decoration: none;
+        text-shadow: none;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: break-word;
+        white-space: pre;
+        background: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus)) !important;
+        border-radius: var(--borderRadius-medium);
+        border: 0 !important;
+        opacity: 0;
+        max-width: var(--overlay-width-small);
+        word-wrap: break-word;
+        white-space: normal;
+        width: max-content !important;
+        inset: var(--tool-tip-position-top, 0) auto auto var(--tool-tip-position-left, 0) !important;
+        overflow: visible !important;
+        text-wrap: balance;
+      }
+
+      :host:before{
+        position: absolute;
+        z-index: 1000001;
+        color: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus));
+        content: "";
+        border: 6px solid transparent;
+        opacity: 0;
+      }
+
+      @keyframes tooltip-appear {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      :host:after{
+        position: absolute;
+        display: block;
+        right: 0;
+        left: 0;
+        height: 12px;
+        content: "";
+      }
+
+      :host(:popover-open),
+      :host(:popover-open):before {
+        animation-name: tooltip-appear;
+        animation-duration: .1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in;
+      }
+
+      :host(.\:popover-open),
+      :host(.\:popover-open):before {
+        animation-name: tooltip-appear;
+        animation-duration: .1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in;
+        animation-delay: .4s;
+      }
+
+      :host(.tooltip-s):before,
+      :host(.tooltip-n):before {
+        right: 50%;
+        margin-right: -6px;
+      }
+      :host(.tooltip-s):before,
+      :host(.tooltip-se):before,
+      :host(.tooltip-sw):before {
+        bottom: 100%;
+        border-bottom-color: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus));
+      }
+      :host(.tooltip-s):after,
+      :host(.tooltip-se):after,
+      :host(.tooltip-sw):after {
+        bottom: 100%
+      }
+      :host(.tooltip-n):before,
+      :host(.tooltip-ne):before,
+      :host(.tooltip-nw):before {
+        top: 100%;
+        border-top-color: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus));
+      }
+      :host(.tooltip-n):after,
+      :host(.tooltip-ne):after,
+      :host(.tooltip-nw):after {
+        top: 100%;
+      }
+      :host(.tooltip-se):before,
+      :host(.tooltip-ne):before {
+        left: 0;
+        margin-left: 6px;
+      }
+      :host(.tooltip-sw):before,
+      :host(.tooltip-nw):before {
+        right: 0;
+        margin-right: 6px;
+      }
+      :host(.tooltip-w):before {
+        top: 50%;
+        bottom: 50%;
+        left: 100%;
+        margin-top: -6px;
+        border-left-color: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus));
+      }
+      :host(.tooltip-e):before {
+        top: 50%;
+        right: 100%;
+        bottom: 50%;
+        margin-top: -6px;
+        border-right-color: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus));
+      }
+    </style><slot></slot></template>You must be signed in to star a gist</tool-tip>
+
+      </li>
+
+        <li>
+            <a id="gist-fork-button" href="https://gist.github.com/login?return_to=https%3A%2F%2Fgist.github.com%2Fperlineanisha%2F43ef4bd1612a2f1ec546e6ecbc6f07a2" rel="nofollow" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;gist fork button&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;LOG_IN&quot;,&quot;originating_url&quot;:&quot;https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="5c24c199c2d51304a79a32329ed0d9dcb4b5160b164f8b3fbd67f5b157b2505e" data-view-component="true" class="btn-with-count Button--secondary Button--small Button" aria-describedby="tooltip-55e41a32-fbd2-458d-a22e-7a0721f0f2a9">  <span class="Button-content">
+      <span class="Button-visual Button-leadingVisual">
+        <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-repo-forked">
+    <path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0ZM5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Zm6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm-3 8.75a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Z"></path>
+</svg>
+      </span>
+    <span class="Button-label">Fork</span>
+      <span class="Button-visual Button-trailingVisual">
+        <span title="2" data-view-component="true" class="Counter">2</span>
+      </span>
+  </span>
+</a><tool-tip id="tooltip-55e41a32-fbd2-458d-a22e-7a0721f0f2a9" for="gist-fork-button" popover="manual" data-direction="n" data-type="description" data-view-component="true" class="sr-only position-absolute" role="tooltip"><template shadowrootmode="open"><style>
+      :host {
+        padding: var(--overlay-paddingBlock-condensed) var(--overlay-padding-condensed) !important;
+        font: var(--text-body-shorthand-small);
+        color: var(--fgColor-onEmphasis, var(--color-fg-on-emphasis)) !important;
+        text-align: center;
+        text-decoration: none;
+        text-shadow: none;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: break-word;
+        white-space: pre;
+        background: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus)) !important;
+        border-radius: var(--borderRadius-medium);
+        border: 0 !important;
+        opacity: 0;
+        max-width: var(--overlay-width-small);
+        word-wrap: break-word;
+        white-space: normal;
+        width: max-content !important;
+        inset: var(--tool-tip-position-top, 0) auto auto var(--tool-tip-position-left, 0) !important;
+        overflow: visible !important;
+        text-wrap: balance;
+      }
+
+      :host:before{
+        position: absolute;
+        z-index: 1000001;
+        color: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus));
+        content: "";
+        border: 6px solid transparent;
+        opacity: 0;
+      }
+
+      @keyframes tooltip-appear {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      :host:after{
+        position: absolute;
+        display: block;
+        right: 0;
+        left: 0;
+        height: 12px;
+        content: "";
+      }
+
+      :host(:popover-open),
+      :host(:popover-open):before {
+        animation-name: tooltip-appear;
+        animation-duration: .1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in;
+      }
+
+      :host(.\:popover-open),
+      :host(.\:popover-open):before {
+        animation-name: tooltip-appear;
+        animation-duration: .1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in;
+        animation-delay: .4s;
+      }
+
+      :host(.tooltip-s):before,
+      :host(.tooltip-n):before {
+        right: 50%;
+        margin-right: -6px;
+      }
+      :host(.tooltip-s):before,
+      :host(.tooltip-se):before,
+      :host(.tooltip-sw):before {
+        bottom: 100%;
+        border-bottom-color: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus));
+      }
+      :host(.tooltip-s):after,
+      :host(.tooltip-se):after,
+      :host(.tooltip-sw):after {
+        bottom: 100%
+      }
+      :host(.tooltip-n):before,
+      :host(.tooltip-ne):before,
+      :host(.tooltip-nw):before {
+        top: 100%;
+        border-top-color: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus));
+      }
+      :host(.tooltip-n):after,
+      :host(.tooltip-ne):after,
+      :host(.tooltip-nw):after {
+        top: 100%;
+      }
+      :host(.tooltip-se):before,
+      :host(.tooltip-ne):before {
+        left: 0;
+        margin-left: 6px;
+      }
+      :host(.tooltip-sw):before,
+      :host(.tooltip-nw):before {
+        right: 0;
+        margin-right: 6px;
+      }
+      :host(.tooltip-w):before {
+        top: 50%;
+        bottom: 50%;
+        left: 100%;
+        margin-top: -6px;
+        border-left-color: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus));
+      }
+      :host(.tooltip-e):before {
+        top: 50%;
+        right: 100%;
+        bottom: 50%;
+        margin-top: -6px;
+        border-right-color: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus));
+      }
+    </style><slot></slot></template>You must be signed in to fork a gist</tool-tip>
+
+        </li>
+  </ul>
+</div>
+
+  <div class="d-block d-md-none px-3 px-md-3 px-lg-5 mb-3">
+      <a id="gist-star-button-no-count" href="https://gist.github.com/login?return_to=https%3A%2F%2Fgist.github.com%2Fperlineanisha%2F43ef4bd1612a2f1ec546e6ecbc6f07a2" rel="nofollow" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;gist star button&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;LOG_IN&quot;,&quot;originating_url&quot;:&quot;https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="7e980a9a7a032d59a9a040b80508de14dcb420635517f888a0926db03d648166" data-view-component="true" class="btn-with-count Button--secondary Button--small Button" aria-describedby="tooltip-5321232f-f3b2-47bd-89ad-dc48c72fb72b">  <span class="Button-content">
+      <span class="Button-visual Button-leadingVisual">
+        <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-star">
+    <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path>
+</svg>
+      </span>
+    <span class="Button-label">Star</span>
+  </span>
+</a><tool-tip id="tooltip-5321232f-f3b2-47bd-89ad-dc48c72fb72b" for="gist-star-button-no-count" popover="manual" data-direction="n" data-type="description" data-view-component="true" class="sr-only position-absolute" role="tooltip"><template shadowrootmode="open"><style>
+      :host {
+        padding: var(--overlay-paddingBlock-condensed) var(--overlay-padding-condensed) !important;
+        font: var(--text-body-shorthand-small);
+        color: var(--fgColor-onEmphasis, var(--color-fg-on-emphasis)) !important;
+        text-align: center;
+        text-decoration: none;
+        text-shadow: none;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: break-word;
+        white-space: pre;
+        background: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus)) !important;
+        border-radius: var(--borderRadius-medium);
+        border: 0 !important;
+        opacity: 0;
+        max-width: var(--overlay-width-small);
+        word-wrap: break-word;
+        white-space: normal;
+        width: max-content !important;
+        inset: var(--tool-tip-position-top, 0) auto auto var(--tool-tip-position-left, 0) !important;
+        overflow: visible !important;
+        text-wrap: balance;
+      }
+
+      :host:before{
+        position: absolute;
+        z-index: 1000001;
+        color: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus));
+        content: "";
+        border: 6px solid transparent;
+        opacity: 0;
+      }
+
+      @keyframes tooltip-appear {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      :host:after{
+        position: absolute;
+        display: block;
+        right: 0;
+        left: 0;
+        height: 12px;
+        content: "";
+      }
+
+      :host(:popover-open),
+      :host(:popover-open):before {
+        animation-name: tooltip-appear;
+        animation-duration: .1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in;
+      }
+
+      :host(.\:popover-open),
+      :host(.\:popover-open):before {
+        animation-name: tooltip-appear;
+        animation-duration: .1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in;
+        animation-delay: .4s;
+      }
+
+      :host(.tooltip-s):before,
+      :host(.tooltip-n):before {
+        right: 50%;
+        margin-right: -6px;
+      }
+      :host(.tooltip-s):before,
+      :host(.tooltip-se):before,
+      :host(.tooltip-sw):before {
+        bottom: 100%;
+        border-bottom-color: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus));
+      }
+      :host(.tooltip-s):after,
+      :host(.tooltip-se):after,
+      :host(.tooltip-sw):after {
+        bottom: 100%
+      }
+      :host(.tooltip-n):before,
+      :host(.tooltip-ne):before,
+      :host(.tooltip-nw):before {
+        top: 100%;
+        border-top-color: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus));
+      }
+      :host(.tooltip-n):after,
+      :host(.tooltip-ne):after,
+      :host(.tooltip-nw):after {
+        top: 100%;
+      }
+      :host(.tooltip-se):before,
+      :host(.tooltip-ne):before {
+        left: 0;
+        margin-left: 6px;
+      }
+      :host(.tooltip-sw):before,
+      :host(.tooltip-nw):before {
+        right: 0;
+        margin-right: 6px;
+      }
+      :host(.tooltip-w):before {
+        top: 50%;
+        bottom: 50%;
+        left: 100%;
+        margin-top: -6px;
+        border-left-color: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus));
+      }
+      :host(.tooltip-e):before {
+        top: 50%;
+        right: 100%;
+        bottom: 50%;
+        margin-top: -6px;
+        border-right-color: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus));
+      }
+    </style><slot></slot></template>You must be signed in to star a gist</tool-tip>
+
+  </div>
+
+<div class="d-flex flex-md-row flex-column px-0 pr-md-3 px-lg-5">
+  <div class="flex-md-order-1 flex-order-2 flex-auto">
+    <nav class="UnderlineNav box-shadow-none px-3 px-lg-0 " aria-label="Gist" data-pjax="#gist-pjax-container">
+
+  <div class="UnderlineNav-body">
+    <a class="js-selected-navigation-item selected UnderlineNav-item" data-pjax="true" data-hotkey="g c" aria-current="page" data-selected-links="gist_code /perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2" href="https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-code UnderlineNav-octicon">
+    <path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215Zm-6.56 0a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"></path>
+</svg>
+      Code
+</a>
+      <a class="js-selected-navigation-item UnderlineNav-item" data-pjax="true" data-hotkey="g r" data-selected-links="gist_revisions /perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2/revisions" href="https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2/revisions">
+        <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-git-commit UnderlineNav-octicon">
+    <path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path>
+</svg>
+        Revisions
+        <span title="1" data-view-component="true" class="Counter hx_reponav_item_counter">1</span>
+</a>
+      <a class="js-selected-navigation-item UnderlineNav-item" data-pjax="true" data-hotkey="g s" data-selected-links="gist_stars /perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2/stargazers" href="https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2/stargazers">
+        <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-star UnderlineNav-octicon">
+    <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path>
+</svg>
+        Stars
+        <span title="2" data-view-component="true" class="Counter hx_reponav_item_counter">2</span>
+</a>
+      <a class="js-selected-navigation-item UnderlineNav-item" data-pjax="true" data-hotkey="g f" data-selected-links="gist_forks /perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2/forks" href="https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2/forks">
+        <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-git-branch UnderlineNav-octicon">
+    <path d="M9.5 3.25a2.25 2.25 0 1 1 3 2.122V6A2.5 2.5 0 0 1 10 8.5H6a1 1 0 0 0-1 1v1.128a2.251 2.251 0 1 1-1.5 0V5.372a2.25 2.25 0 1 1 1.5 0v1.836A2.493 2.493 0 0 1 6 7h4a1 1 0 0 0 1-1v-.628A2.25 2.25 0 0 1 9.5 3.25Zm-6 0a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Zm8.25-.75a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5ZM4.25 12a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Z"></path>
+</svg>
+        Forks
+        <span title="2" data-view-component="true" class="Counter hx_reponav_item_counter">2</span>
+</a>  </div>
+</nav>
+
+  </div>
+
+  <div class="d-md-flex d-none flex-items-center flex-md-order-2 flex-order-1 file-navigation-options" data-multiple="">
+
+    <div class="d-lg-table d-none">
+      <div class="file-navigation-option v-align-middle">
+
+  <div class="d-md-flex d-none">
+    <div class="input-group">
+      <div class="input-group-button">
+        <details class="details-reset details-overlay select-menu">
+            <summary data-ga-click="Repository, clone Embed, location:repo overview" data-view-component="true" class="select-menu-button btn-sm btn" aria-haspopup="menu" role="button">    <span data-menu-button="">Embed</span>
+</summary>          <details-menu class="select-menu-modal position-absolute" data-menu-input="gist-share-url" style="z-index: 99;" aria-label="Clone options" role="menu">
+            <div class="select-menu-header">
+              <span class="select-menu-title">What would you like to do?</span>
+            </div>
+            <div class="select-menu-list">
+                <button name="button" type="button" class="select-menu-item width-full" aria-checked="true" role="menuitemradio" value="&lt;script src=&quot;https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2.js&quot;&gt;&lt;/script&gt;" data-hydro-click="{&quot;event_type&quot;:&quot;clone_or_download.click&quot;,&quot;payload&quot;:{&quot;feature_clicked&quot;:&quot;EMBED&quot;,&quot;git_repository_type&quot;:&quot;GIST&quot;,&quot;gist_id&quot;:108976480,&quot;originating_url&quot;:&quot;https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="a202846c7e655becb532499add4330c66801b29b2ab59c053e94a6dd03e34a86">
+                  <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check select-menu-item-icon">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+                  <div class="select-menu-item-text">
+                    <span class="select-menu-item-heading" data-menu-button-text="">
+                      
+                      Embed
+                    </span>
+                      <span class="description">
+                        Embed this gist in your website.
+                      </span>
+                  </div>
+</button>                <button name="button" type="button" class="select-menu-item width-full" aria-checked="false" role="menuitemradio" value="https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2" data-hydro-click="{&quot;event_type&quot;:&quot;clone_or_download.click&quot;,&quot;payload&quot;:{&quot;feature_clicked&quot;:&quot;SHARE&quot;,&quot;git_repository_type&quot;:&quot;GIST&quot;,&quot;gist_id&quot;:108976480,&quot;originating_url&quot;:&quot;https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="bdbf523933c738e6bcc39f17514e555ffba606596c81b3ca64fbbd93a0612812">
+                  <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check select-menu-item-icon">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+                  <div class="select-menu-item-text">
+                    <span class="select-menu-item-heading" data-menu-button-text="">
+                      
+                      Share
+                    </span>
+                      <span class="description">
+                        Copy sharable link for this gist.
+                      </span>
+                  </div>
+</button>                <button name="button" type="button" class="select-menu-item width-full" aria-checked="false" role="menuitemradio" value="https://gist.github.com/43ef4bd1612a2f1ec546e6ecbc6f07a2.git" data-hydro-click="{&quot;event_type&quot;:&quot;clone_or_download.click&quot;,&quot;payload&quot;:{&quot;feature_clicked&quot;:&quot;USE_HTTPS&quot;,&quot;git_repository_type&quot;:&quot;GIST&quot;,&quot;gist_id&quot;:108976480,&quot;originating_url&quot;:&quot;https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="7bb8b3846533e7f41d5460c440298b68008777b1a879681ae5463459eefa6e54">
+                  <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check select-menu-item-icon">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+                  <div class="select-menu-item-text">
+                    <span class="select-menu-item-heading" data-menu-button-text="">
+                      Clone via
+                      HTTPS
+                    </span>
+                      <span class="description">
+                        Clone with Git or checkout with SVN using the repository’s web address.
+                      </span>
+                  </div>
+</button>            </div>
+            <div class="select-menu-list">
+              <a role="link" class="select-menu-item select-menu-action" href="https://docs.github.com/articles/which-remote-url-should-i-use" target="_blank" rel="noopener noreferrer">
+                <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-question select-menu-item-icon">
+    <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path>
+</svg>
+                <div class="select-menu-item-text">
+                  Learn more about clone URLs
+                </div>
+              </a>
+            </div>
+          </details-menu>
+        </details>
+      </div>
+
+      <input id="gist-share-url" type="text" data-autoselect="" class="form-control input-monospace input-sm" value="&lt;script src=&quot;https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2.js&quot;&gt;&lt;/script&gt;" aria-label="Clone this repository at &lt;script src=&quot;https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2.js&quot;&gt;&lt;/script&gt;" readonly="">
+
+      <div class="input-group-button">
+        <clipboard-copy for="gist-share-url" aria-label="Copy to clipboard" class="btn btn-sm zeroclipboard-button" data-hydro-click="{&quot;event_type&quot;:&quot;clone_or_download.click&quot;,&quot;payload&quot;:{&quot;feature_clicked&quot;:&quot;COPY_URL&quot;,&quot;git_repository_type&quot;:&quot;GIST&quot;,&quot;gist_id&quot;:108976480,&quot;originating_url&quot;:&quot;https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="26e3997d9ce5b3006f3ff6efc30780043611a043c6347f2699d0db2a4602909d" tabindex="0" role="button"><svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg></clipboard-copy>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+
+    <div class="ml-2 file-navigation-option">
+    <a class="btn btn-sm tooltipped tooltipped-s tooltipped-multiline js-remove-unless-platform" data-platforms="windows,mac" aria-label="Save perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2 to your computer and use it in GitHub Desktop." data-hydro-click="{&quot;event_type&quot;:&quot;clone_or_download.click&quot;,&quot;payload&quot;:{&quot;feature_clicked&quot;:&quot;OPEN_IN_DESKTOP&quot;,&quot;git_repository_type&quot;:&quot;GIST&quot;,&quot;gist_id&quot;:108976480,&quot;originating_url&quot;:&quot;https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="4009d7b6c2f1620c333ef9643fbfb713471ab513a637169f39658a0a1c39ce25" href="https://desktop.github.com/"><svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-desktop-download">
+    <path d="m4.927 5.427 2.896 2.896a.25.25 0 0 0 .354 0l2.896-2.896A.25.25 0 0 0 10.896 5H8.75V.75a.75.75 0 1 0-1.5 0V5H5.104a.25.25 0 0 0-.177.427Z"></path><path d="M1.573 2.573a.25.25 0 0 0-.073.177v7.5a.25.25 0 0 0 .25.25h12.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25h-3a.75.75 0 1 1 0-1.5h3A1.75 1.75 0 0 1 16 2.75v7.5A1.75 1.75 0 0 1 14.25 12h-3.727c.099 1.041.52 1.872 1.292 2.757A.75.75 0 0 1 11.25 16h-6.5a.75.75 0 0 1-.565-1.243c.772-.885 1.192-1.716 1.292-2.757H1.75A1.75 1.75 0 0 1 0 10.25v-7.5A1.75 1.75 0 0 1 1.75 1h3a.75.75 0 0 1 0 1.5h-3a.25.25 0 0 0-.177.073ZM6.982 12a5.72 5.72 0 0 1-.765 2.5h3.566a5.72 5.72 0 0 1-.765-2.5H6.982Z"></path>
+</svg></a>
+</div>
+
+
+    <div class="ml-2">
+      <a class="btn btn-sm" rel="nofollow" data-hydro-click="{&quot;event_type&quot;:&quot;clone_or_download.click&quot;,&quot;payload&quot;:{&quot;feature_clicked&quot;:&quot;DOWNLOAD_ZIP&quot;,&quot;git_repository_type&quot;:&quot;GIST&quot;,&quot;gist_id&quot;:108976480,&quot;originating_url&quot;:&quot;https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="eeead517fac880ac30e3b45c0789bae8b18e1ce7719301cbb16d472ef906fbad" data-ga-click="Gist, download zip, location:gist overview" href="https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2/archive/4aff33d8f536bcf92c724f7d0da533e20060ec01.zip">Download ZIP</a>
+    </div>
+  </div>
+</div>
+
+
+  </div>
+</div>
+
+<div class="container-lg px-3">
+  <div class="repository-content gist-content">
+    
+  <div>
+      <div itemprop="about">
+    Assignment 12 - Naive Bayes.ipynb
+  </div>
+
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-assignment-12-naive-bayes-ipynb" class="file my-2">
+      <div class="file-header d-flex flex-md-items-center flex-items-start">
+        <div class="file-actions flex-order-2 pt-0">
+            <div data-view-component="true" class="ButtonGroup">
+    <div>
+      <a id="gist-source-blob-Assignment 12 - Naive Bayes.ipynb" href="https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2?short_path=72492d2" aria-labelledby="tooltip-7fc7d0f5-bc4c-476f-ba8b-b599cb2bb934" data-view-component="true" class="Button Button--iconOnly Button--secondary Button--medium">  <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-code Button-visual">
+    <path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215Zm-6.56 0a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"></path>
+</svg>
+</a><tool-tip id="tooltip-7fc7d0f5-bc4c-476f-ba8b-b599cb2bb934" for="gist-source-blob-Assignment 12 - Naive Bayes.ipynb" popover="manual" data-direction="s" data-type="label" data-view-component="true" class="position-absolute sr-only" aria-hidden="true" role="tooltip" style="--tool-tip-position-top: 371px; --tool-tip-position-left: 995.2734375px;"><template shadowrootmode="open"><style>
+      :host {
+        padding: var(--overlay-paddingBlock-condensed) var(--overlay-padding-condensed) !important;
+        font: var(--text-body-shorthand-small);
+        color: var(--fgColor-onEmphasis, var(--color-fg-on-emphasis)) !important;
+        text-align: center;
+        text-decoration: none;
+        text-shadow: none;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: break-word;
+        white-space: pre;
+        background: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus)) !important;
+        border-radius: var(--borderRadius-medium);
+        border: 0 !important;
+        opacity: 0;
+        max-width: var(--overlay-width-small);
+        word-wrap: break-word;
+        white-space: normal;
+        width: max-content !important;
+        inset: var(--tool-tip-position-top, 0) auto auto var(--tool-tip-position-left, 0) !important;
+        overflow: visible !important;
+        text-wrap: balance;
+      }
+
+      :host:before{
+        position: absolute;
+        z-index: 1000001;
+        color: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus));
+        content: "";
+        border: 6px solid transparent;
+        opacity: 0;
+      }
+
+      @keyframes tooltip-appear {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      :host:after{
+        position: absolute;
+        display: block;
+        right: 0;
+        left: 0;
+        height: 12px;
+        content: "";
+      }
+
+      :host(:popover-open),
+      :host(:popover-open):before {
+        animation-name: tooltip-appear;
+        animation-duration: .1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in;
+      }
+
+      :host(.\:popover-open),
+      :host(.\:popover-open):before {
+        animation-name: tooltip-appear;
+        animation-duration: .1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in;
+        animation-delay: .4s;
+      }
+
+      :host(.tooltip-s):before,
+      :host(.tooltip-n):before {
+        right: 50%;
+        margin-right: -6px;
+      }
+      :host(.tooltip-s):before,
+      :host(.tooltip-se):before,
+      :host(.tooltip-sw):before {
+        bottom: 100%;
+        border-bottom-color: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus));
+      }
+      :host(.tooltip-s):after,
+      :host(.tooltip-se):after,
+      :host(.tooltip-sw):after {
+        bottom: 100%
+      }
+      :host(.tooltip-n):before,
+      :host(.tooltip-ne):before,
+      :host(.tooltip-nw):before {
+        top: 100%;
+        border-top-color: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus));
+      }
+      :host(.tooltip-n):after,
+      :host(.tooltip-ne):after,
+      :host(.tooltip-nw):after {
+        top: 100%;
+      }
+      :host(.tooltip-se):before,
+      :host(.tooltip-ne):before {
+        left: 0;
+        margin-left: 6px;
+      }
+      :host(.tooltip-sw):before,
+      :host(.tooltip-nw):before {
+        right: 0;
+        margin-right: 6px;
+      }
+      :host(.tooltip-w):before {
+        top: 50%;
+        bottom: 50%;
+        left: 100%;
+        margin-top: -6px;
+        border-left-color: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus));
+      }
+      :host(.tooltip-e):before {
+        top: 50%;
+        right: 100%;
+        bottom: 50%;
+        margin-top: -6px;
+        border-right-color: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus));
+      }
+    </style><slot></slot></template>Display the source blob</tool-tip>
+
+    </div>
+    <div>
+      <a id="gist-rendered-blob-Assignment 12 - Naive Bayes.ipynb" href="https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2" aria-labelledby="tooltip-43504906-b1d1-409a-b40c-3729de163bba" data-view-component="true" class="Button Button--iconOnly Button--secondary Button--medium  selected">  <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-file Button-visual">
+    <path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path>
+</svg>
+</a><tool-tip id="tooltip-43504906-b1d1-409a-b40c-3729de163bba" for="gist-rendered-blob-Assignment 12 - Naive Bayes.ipynb" popover="manual" data-direction="s" data-type="label" data-view-component="true" class="position-absolute sr-only" aria-hidden="true" role="tooltip" style="--tool-tip-position-top: 371px; --tool-tip-position-left: 1019.6796875px;"><template shadowrootmode="open"><style>
+      :host {
+        padding: var(--overlay-paddingBlock-condensed) var(--overlay-padding-condensed) !important;
+        font: var(--text-body-shorthand-small);
+        color: var(--fgColor-onEmphasis, var(--color-fg-on-emphasis)) !important;
+        text-align: center;
+        text-decoration: none;
+        text-shadow: none;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: break-word;
+        white-space: pre;
+        background: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus)) !important;
+        border-radius: var(--borderRadius-medium);
+        border: 0 !important;
+        opacity: 0;
+        max-width: var(--overlay-width-small);
+        word-wrap: break-word;
+        white-space: normal;
+        width: max-content !important;
+        inset: var(--tool-tip-position-top, 0) auto auto var(--tool-tip-position-left, 0) !important;
+        overflow: visible !important;
+        text-wrap: balance;
+      }
+
+      :host:before{
+        position: absolute;
+        z-index: 1000001;
+        color: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus));
+        content: "";
+        border: 6px solid transparent;
+        opacity: 0;
+      }
+
+      @keyframes tooltip-appear {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      :host:after{
+        position: absolute;
+        display: block;
+        right: 0;
+        left: 0;
+        height: 12px;
+        content: "";
+      }
+
+      :host(:popover-open),
+      :host(:popover-open):before {
+        animation-name: tooltip-appear;
+        animation-duration: .1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in;
+      }
+
+      :host(.\:popover-open),
+      :host(.\:popover-open):before {
+        animation-name: tooltip-appear;
+        animation-duration: .1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in;
+        animation-delay: .4s;
+      }
+
+      :host(.tooltip-s):before,
+      :host(.tooltip-n):before {
+        right: 50%;
+        margin-right: -6px;
+      }
+      :host(.tooltip-s):before,
+      :host(.tooltip-se):before,
+      :host(.tooltip-sw):before {
+        bottom: 100%;
+        border-bottom-color: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus));
+      }
+      :host(.tooltip-s):after,
+      :host(.tooltip-se):after,
+      :host(.tooltip-sw):after {
+        bottom: 100%
+      }
+      :host(.tooltip-n):before,
+      :host(.tooltip-ne):before,
+      :host(.tooltip-nw):before {
+        top: 100%;
+        border-top-color: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus));
+      }
+      :host(.tooltip-n):after,
+      :host(.tooltip-ne):after,
+      :host(.tooltip-nw):after {
+        top: 100%;
+      }
+      :host(.tooltip-se):before,
+      :host(.tooltip-ne):before {
+        left: 0;
+        margin-left: 6px;
+      }
+      :host(.tooltip-sw):before,
+      :host(.tooltip-nw):before {
+        right: 0;
+        margin-right: 6px;
+      }
+      :host(.tooltip-w):before {
+        top: 50%;
+        bottom: 50%;
+        left: 100%;
+        margin-top: -6px;
+        border-left-color: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus));
+      }
+      :host(.tooltip-e):before {
+        top: 50%;
+        right: 100%;
+        bottom: 50%;
+        margin-top: -6px;
+        border-right-color: var(--bgColor-emphasis, var(--color-neutral-emphasis-plus));
+      }
+    </style><slot></slot></template>Display the rendered blob</tool-tip>
+
+    </div>
+</div>          <a href="https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2/raw/4aff33d8f536bcf92c724f7d0da533e20060ec01/Assignment%252012%2520-%2520Naive%2520Bayes.ipynb" data-view-component="true" class="Button--secondary Button--small Button">  <span class="Button-content">
+    <span class="Button-label">Raw</span>
+  </span>
+</a>
+
+        </div>
+        <div class="file-info pr-4 d-flex flex-md-items-center flex-items-start flex-order-1 flex-auto">
+          <span class="mr-1">
+            <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-code-square color-fg-muted">
+    <path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v12.5A1.75 1.75 0 0 1 14.25 16H1.75A1.75 1.75 0 0 1 0 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V1.75a.25.25 0 0 0-.25-.25Zm7.47 3.97a.75.75 0 0 1 1.06 0l2 2a.75.75 0 0 1 0 1.06l-2 2a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L10.69 8 9.22 6.53a.75.75 0 0 1 0-1.06ZM6.78 6.53 5.31 8l1.47 1.47a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-2-2a.75.75 0 0 1 0-1.06l2-2a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"></path>
+</svg>
+          </span>
+          <a class="wb-break-all" href="https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2#file-assignment-12-naive-bayes-ipynb">
+            <strong class="user-select-contain gist-blob-name css-truncate-target">
+              Assignment 12 - Naive Bayes.ipynb
+            </strong>
+          </a>
+        </div>
+      </div>
+    
+    <div itemprop="text" class="Box-body p-0 blob-wrapper data type-jupyter-notebook  gist-border-0">
+
+          <div class="render-wrapper ">
+    <div class="render-container js-render-target is-render-automatic is-render-requested is-render-ready" data-identity="11bd9a75-514c-4870-9552-bd94dc85505c" data-host="https://notebooks.githubusercontent.com" data-type="ipynb" style="height: 28207.7px;">
+      <svg style="box-sizing: content-box; color: var(--color-icon-primary);" width="64" height="64" viewBox="0 0 16 16" fill="none" data-view-component="true" class="octospinner mx-auto anim-rotate">
+  <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-opacity="0.25" stroke-width="2" vector-effect="non-scaling-stroke" fill="none"></circle>
+  <path d="M15 8a7.002 7.002 0 00-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"></path>
+</svg>
+      <div class="render-viewer-error">Sorry, something went wrong. <a class="Link--inTextBlock" href="https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2">Reload?</a></div>
+      <div class="render-viewer-fatal">Sorry, we cannot display this file.</div>
+      <div class="render-viewer-invalid">Sorry, this file is invalid so it cannot be displayed.</div>
+      <iframe class="render-viewer " src="./Assignment 12 - Naive Bayes_files/ipynb.html" sandbox="allow-scripts allow-same-origin allow-top-navigation" title="File display" name="11bd9a75-514c-4870-9552-bd94dc85505c">
+          Viewer requires iframe.
+      </iframe>
+    </div>
+  </div>
+ 
+    </div>
+
+  </div>
+</div>
+
+
+      <a name="comments"></a>
+      <div class="js-quote-selection-container" data-quote-markdown=".js-comment-body">
+        <div class="js-discussion ">
+          <div class="ml-md-6 pl-md-3 ml-0 pl-0">
+            
+
+
+
+<!-- Rendered timeline since 2023-08-31 00:07:56 -->
+<div id="partial-timeline-marker" class="js-timeline-marker js-updatable-content" data-last-modified="Thu, 31 Aug 2023 07:07:56 GMT">
+</div>
+
+          </div>
+
+          <div class="discussion-timeline-actions">
+            <div data-view-component="true" class="flash flash-warn mt-3">
+  
+    <a rel="nofollow" class="btn btn-primary" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;signed out comment&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;SIGN_UP&quot;,&quot;originating_url&quot;:&quot;https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="4aa5b4099b94fac072b89806a685f841f7ef5a39082cea97c034ef59852417ab" href="https://gist.github.com/join?source=comment-gist">Sign up for free</a>
+    <strong>to join this conversation on GitHub</strong>.
+    Already have an account?
+    <a rel="nofollow" class="Link--inTextBlock" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;signed out comment&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;LOG_IN&quot;,&quot;originating_url&quot;:&quot;https://gist.github.com/perlineanisha/43ef4bd1612a2f1ec546e6ecbc6f07a2&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="761eb9ad9508bf7d106932f5795d7b392449178fa5658e8a789a220985c6dfbe" data-test-selector="comments-sign-in-link" href="https://gist.github.com/login?return_to=https%3A%2F%2Fgist.github.com%2Fperlineanisha%2F43ef4bd1612a2f1ec546e6ecbc6f07a2">Sign in to comment</a>
+
+
+  
+</div>
+          </div>
+        </div>
+      </div>
+</div>
+  </div>
+</div><!-- /.container -->
+
+    </main>
+  </div>
+
+  </div>
+
+          <footer class="footer p-responsive pt-8 pb-6 f6 color-fg-muted" role="contentinfo">
+  <h2 class="sr-only">Footer</h2>
+
+
+  <div class="d-flex flex-justify-center flex-items-center flex-column-reverse flex-lg-row flex-wrap flex-lg-nowrap">
+    <div class="d-flex flex-items-center mx-2">
+      <a aria-label="Homepage" title="GitHub" class="footer-octicon mr-2" href="https://github.com/">
+        <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true" class="octicon octicon-mark-github">
+    <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+</svg>
+</a>
+      <span>
+        © 2023 GitHub, Inc.
+      </span>
+    </div>
+
+    <nav aria-label="Footer">
+      <h3 class="sr-only" id="sr-footer-heading">Footer navigation</h3>
+
+      <ul class="list-style-none d-flex flex-justify-center flex-wrap mb-2 mb-lg-0" aria-labelledby="sr-footer-heading">
+
+          <li class="mx-2">
+            <a data-analytics-event="{&quot;category&quot;:&quot;Footer&quot;,&quot;action&quot;:&quot;go to Terms&quot;,&quot;label&quot;:&quot;text:terms&quot;}" href="https://docs.github.com/site-policy/github-terms/github-terms-of-service" data-view-component="true" class="Link--secondary Link">Terms</a>
+          </li>
+
+          <li class="mx-2">
+            <a data-analytics-event="{&quot;category&quot;:&quot;Footer&quot;,&quot;action&quot;:&quot;go to privacy&quot;,&quot;label&quot;:&quot;text:privacy&quot;}" href="https://docs.github.com/site-policy/privacy-policies/github-privacy-statement" data-view-component="true" class="Link--secondary Link">Privacy</a>
+          </li>
+
+          <li class="mx-2">
+            <a data-analytics-event="{&quot;category&quot;:&quot;Footer&quot;,&quot;action&quot;:&quot;go to security&quot;,&quot;label&quot;:&quot;text:security&quot;}" href="https://github.com/security" data-view-component="true" class="Link--secondary Link">Security</a>
+          </li>
+
+          <li class="mx-2">
+            <a data-analytics-event="{&quot;category&quot;:&quot;Footer&quot;,&quot;action&quot;:&quot;go to status&quot;,&quot;label&quot;:&quot;text:status&quot;}" href="https://www.githubstatus.com/" data-view-component="true" class="Link--secondary Link">Status</a>
+          </li>
+
+          <li class="mx-2">
+            <a data-analytics-event="{&quot;category&quot;:&quot;Footer&quot;,&quot;action&quot;:&quot;go to docs&quot;,&quot;label&quot;:&quot;text:docs&quot;}" href="https://docs.github.com/" data-view-component="true" class="Link--secondary Link">Docs</a>
+          </li>
+
+          <li class="mx-2">
+            <a data-analytics-event="{&quot;category&quot;:&quot;Footer&quot;,&quot;action&quot;:&quot;go to contact&quot;,&quot;label&quot;:&quot;text:contact&quot;}" href="https://support.github.com/?tags=dotcom-footer" data-view-component="true" class="Link--secondary Link">Contact</a>
+          </li>
+
+      </ul>
+    </nav>
+  </div>
+
+</footer>
+
+
+
+
+
+  <div id="ajax-error-message" class="ajax-error-message flash flash-error" hidden="">
+    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-alert">
+    <path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path>
+</svg>
+    <button type="button" class="flash-close js-ajax-error-dismiss" aria-label="Dismiss error">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-x">
+    <path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l3.22 3.22a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-3.22 3.22a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06Z"></path>
+</svg>
+    </button>
+    You can’t perform that action at this time.
+  </div>
+
+    <template id="site-details-dialog"></template>
+
+    <div class="Popover js-hovercard-content position-absolute" style="display: none; outline: none;" tabindex="0">
+  <div class="Popover-message Popover-message--bottom-left Popover-message--large Box color-shadow-large" style="width:360px;"></div>
+</div>
+
+    <template id="snippet-clipboard-copy-button"></template>
+<template id="snippet-clipboard-copy-button-unpositioned"></template>
+
+
+
+
+    </div>
+
+    <div id="js-global-screen-reader-notice" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+    <div id="js-global-screen-reader-notice-assertive" class="sr-only" aria-live="assertive" aria-atomic="true"></div>
+  
+
+
+</body></html>
